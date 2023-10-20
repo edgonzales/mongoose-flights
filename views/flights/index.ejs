@@ -6,13 +6,18 @@
     <title>Flights</title>
 </head>
 <body>
-    <h1>All Flights Here</h1>
+    <h1>List of Flights</h1>
+    <a href="/">HOME</a>
+      |    
+    <a href="/flights/new">ADD FLIGHT</a>
+    <br>
       <% allFlights.forEach(function(f){%>
         <tr>
-            <td><%= f.airline %></td>
-            <td><%= f.airport %></td>
-            <td><%= f.flightNo %></td>
-            <td><%= f.departs %></td>
+            <br>
+            <td>Airline: <%= f.airline %></td><br>
+            <td>Airport: <%= f.airport %></td><br>
+            <td>Flight Number: <%= f.flightNo %></td><br>
+            <td>Departs: <%= f.departs %></td><br>
         </tr>
         <% }); %>
 </body>
