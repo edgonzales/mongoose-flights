@@ -2,7 +2,7 @@
 const dateFns = require('date-fns');
 const mongoose = require('mongoose');
 
-const date = new Date.now();
+const date = Date.now();
 const newDate = dateFns.addYears(date, 1);
 
 // FIRST WE DEFINE THE SCHEMA
