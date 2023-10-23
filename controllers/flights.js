@@ -3,7 +3,19 @@ const FlightModel = require("../models/flight");
 module.exports = {
     index,
     new: newFlight,
-    create
+    create,
+    show
+}
+
+async function show(req, res) {
+  try {
+    const flightDocument = await FlightModel.findById(req.params.id);
+    console.log(flightDocument, '<---- this is the flight info');
+    res.render('flights/show', {flight: flightDocument});
+
+  } catch (err) {
+    
+  }
 }
 
 async function index(req, res){
