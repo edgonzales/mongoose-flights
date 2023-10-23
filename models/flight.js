@@ -19,7 +19,7 @@ const flightSchema = new mongoose.Schema({
 	flightNo: {
         type: Number,
         min: 10,
-        max: 9999,
+        max: 9999
     },
     departs: {
         type: Date,

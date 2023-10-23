@@ -26,7 +26,7 @@ async function create(req, res){
     const flightDoc = await FlightModel.create(req.body);
     // put it in the database, then respond client
     console.log(flightDoc, " <0 this is the movie created in db");
-    res.redirect("/flights/index"); // < this will 404 currently because
+    res.redirect("/flights"); // < this will 404 currently because
     // we haven't defined that route yet!
   } catch (err) {
     // console.log(err, '<---- this is the error')
