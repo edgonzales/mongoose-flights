@@ -5,6 +5,18 @@ const mongoose = require('mongoose');
 const date = Date.now();
 const newDate = dateFns.addYears(date, 1);
 
+const destinationSchema = new mongoose.Schema({
+    airport: {
+        type: String,
+        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
+    },
+    arrival: {
+        type: Date,
+        default: date
+    }
+})
+
+
 // FIRST WE DEFINE THE SCHEMA
 const flightSchema = new mongoose.Schema({
 	airline: {
@@ -24,7 +36,8 @@ const flightSchema = new mongoose.Schema({
     departs: {
         type: Date,
         default: newDate
-    }
+    },
+    destinations: [destinationSchema]
 })
 // THEN WE COMPILE THE SCHEMA INTO THE MODEL AND EXPORT IT to be used in the controllers!
 module.exports = mongoose.model('Flight', flightSchema);  //< the result of that line of code is the model, and we are exporting it

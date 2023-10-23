@@ -16,5 +16,21 @@
           <td>Flight Number: <%= flight.flightNo %></td><br>
           <td>Departs: <%= flight.departs %></td><br>
       </tr>
+    <h4>Add a Destination</h4>
+    <form action="/flights/<%= flight._id %>/destinations" method="POST">
+        <label for="airport">Select Airport</label>
+        <select name="airport" id="airport">Airport
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <br>
+		<label for="arrival">Arrival</label>
+        <input type="datetime-local" id="arrival" name="arrival">
+        <br>
+        <button type="submit">Add Destination</button>
+    </form>
 </body>
 </html>
