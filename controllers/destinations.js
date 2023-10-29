@@ -6,6 +6,7 @@ module.exports = {
 
 async function create(req, res){
     try {
+        // first find the doc by the req id
         const flightDoc = await FlightModel.findById(req.params.id)
         console.log(flightDoc, '<---- destination doc');
         console.log(req.body, '<--- contents of the form');

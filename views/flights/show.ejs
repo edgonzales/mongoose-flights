@@ -18,7 +18,31 @@
           <td>Airport: <%= flight.airport %></td><br>
           <td>Flight Number: <%= flight.flightNo %></td><br>
           <td>Departs: <%= flight.departs %></td><br>
+
+          <% if (flight.tickets.length) { %>
+          <tbody>
+            <% flight.tickets.forEach(function(t) { %>
+            <tr>
+                  <td><%= t.seat %></td>
+                  <td><%= t.price %></td>
+            </tr>
+            <% }); %>
+          </tbody>
+          </table>
+          
+      <% } else {%>
+    
+        <h2>No tickets yet!</h2>
+      <% } %>
       </tr>
+
+      <h3>All Available Tickets</h3>
+      <% allTickets.forEach(function(a) { %>
+        <%= a.seat %>
+        <%= a.price %>
+      <% }) %>
+
+
     <h3>Add a Destination</h3>
     <form action="/flights/<%= flight._id %>/destinations" method="POST">
         <label for="airport">Select Airport</label>
